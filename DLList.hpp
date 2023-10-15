@@ -5,9 +5,6 @@
 #include "NullNodeException.hpp"
 
 // Class template for a doubly linked list.
-// Note: In a class template definition, C++ will assume
-//   any reference to the class is templated.
-//   So, inside DLList writing DLList means DLList<T>
 template <class T>
 class DLList
 {
@@ -36,86 +33,86 @@ public:
 
    ~DLList();
 
-   // Test if current position is null.
+   // Tests if current position is null.
    bool isCurNull() const
    {
       return cur == nullptr;
    }
 
-   // Test if there is a previous element.
+   // Tests if there is a previous element.
    bool hasPrev() const
    {
       return !isCurNull() && cur->prev != nullptr;
    }
 
-   // Test if there is a next element.
+   // Tests if there is a next element.
    bool hasNext() const
    {
       return !isCurNull() && cur->next != nullptr;
    }
 
-   // Move to the head of the list.
-   // Return a reference to the invoking object.
+   // Moves to the head of the list.
+   // Returns a reference to the invoking object.
    DLList & toHead()
    {
       cur = head;
       return *this;
    }
 
-   // Move to the tail of the list.
-   // Return a reference to the invoking object.
+   // Moves to the tail of the list.
+   // Returns a reference to the invoking object.
    DLList & toTail()
    {
       cur = tail;
       return *this;
    }
 
-   // Move to the previous element.
-   // Return a reference to the invoking object.
+   // Moves to the previous element.
+   // Returns a reference to the invoking object.
    DLList & toPrev();
 
-   // Move to the next element.
-   // Return a reference to the invoking object.
+   // Moves to the next element.
+   // Returns a reference to the invoking object.
    DLList & toNext();
 
-   // Get the data at the current position.
-   // Throw a NullNodeException if the current position is null.
+   // Gets the data at the current position.
+   // Throws a NullNodeException if the current position is null.
    T getData() const;
 
-   // Set the data at the current position.
-   // Throw a NullNodeException if the current position is null.
-   // Return a reference to the invoking object.
+   // Sets the data at the current position.
+   // Throws a NullNodeException if the current position is null.
+   // Returns a reference to the invoking object.
    DLList & setData(const T & value);
 
-   // Insert a new element before the current position
-   // and move to this position.
+   // Inserts a new element before the current position
+   // and moves to this position.
    // If the current position is null and the list is not empty,
    // then the new element will not be inserted.
-   // Return a reference to the invoking object.
+   // Returns a reference to the invoking object.
    DLList & insertBefore(const T & data);
 
-   // Insert a new element after the current position
-   // and move to this position.
+   // Inserts a new element after the current position
+   // and moves to this position.
    // If the current position is null and the list is not empty,
    // then the new element will not be inserted.
-   // Return a reference to the invoking object.
+   // Returns a reference to the invoking object.
    DLList & insertAfter(const T & data);
 
-   // Remove the element at the current position
-   // and move to the next position.
-   // Return a reference to the invoking object.
+   // Removes the element at the current position
+   // and moves to the next position.
+   // Returns a reference to the invoking object.
    DLList & removeToNext();
 
-   // Remove the element at the current position
-   // and move to the previous position.
-   // Return a reference to the invoking object.
+   // Removes the element at the current position
+   // and moves to the previous position.
+   // Returns a reference to the invoking object.
    DLList & removeToPrev();
 
-   // Remove all elements in this list.
-   // Return a reference to the invoking object.
+   // Removes all elements in this list.
+   // Returns a reference to the invoking object.
    DLList & clear();
 
-   // Test if the list is empty.
+   // Tests if the list is empty.
    bool isEmpty() const
    {
       return head == nullptr;
