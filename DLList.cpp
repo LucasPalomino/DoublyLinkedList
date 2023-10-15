@@ -13,18 +13,8 @@ DLList<T> & DLList<T>::toPrev()
    return *this;
 }
 
-// TODO: write the definition of function DLList<T>::toNext().
-//   This function points cur to the next element (this is done if
-//   cur is not nullptr) and returns a reference to the invoking object.
-//   The purpose of returning a reference to the invoking object is to
-//   allow chaining of method call in a single statement. For example:
-//      DLList<int> l;
-//      l.toNext().toNext().toNext();
-//   In a non-static member function, the keyword this is a pointer
-//   to the invoking object. We can return a reference to the
-//   invoking object by returning *this.
-//   Move to the next element.
-//   Return a reference to the invoking object.
+//   Points cur to the next element
+//   Returns a reference to the invoking object.
 
 template <class T>
 DLList<T> & DLList<T>::toNext()
@@ -36,7 +26,8 @@ DLList<T> & DLList<T>::toNext()
 
 
 // Get the data at the current position.
-// Throw a NullNodeException if the current position is null.
+//   If isCurNull() is true, throws a NullNodeException instead
+// Throws a NullNodeException if the current position is null.
 template <class T>
 T DLList<T>::getData() const
 {
@@ -45,14 +36,10 @@ T DLList<T>::getData() const
    return cur->data;
 }
 
-// TODO: write the definition of function
-//   DLList<T>::setData(const T & value).
-//   This function sets the data of the current node (the node cur
+//   Sets the data of the current node (the node cur
 //   points to) to the parameter value.
-//   If isCurNull() is true, then throw a NullNodeException instead
-//   of setting the current node data.
-//   A NullNodeException can be thrown with: throw NullNodeException{};
-//   Return a reference to the invoking object.
+//   If isCurNull() is true, throws a NullNodeException instead
+//   Returns a reference to the invoking object.
 
 template <class T>
 DLList<T> & DLList<T>::setData(const T & value)
@@ -64,15 +51,12 @@ DLList<T> & DLList<T>::setData(const T & value)
    return *this;
 }
 
-// TODO: write the definition of function
-//   DLList<T>::insertBefore(const T & data).
-//   This function inserts a new node (whose data is equal to parameter data)
+//   Inserts a new node (whose data is equal to parameter data)
 //   before the current position and moves to this new node.
 //   If the current position is null (i.e., isCurNull() is true) and the
 //   list is not empty (i.e., !isEmpty() is true), then the new element will
 //   not be inserted.
-//   Return a reference to the invoking object.
-//   Hint: the new node should be created on the heap.
+//   Returns a reference to the invoking object.
 
 template <class T>
 DLList<T> & DLList<T>::insertBefore(const T & data)
@@ -109,15 +93,12 @@ DLList<T> & DLList<T>::insertBefore(const T & data)
    
 }
    
-// TODO: write the definition of function
-//   DLList<T>::insertAfter(const T & data).
-//   This function inserts a new node (whose data is equal to parameter data)
+//   Inserts a new node (whose data is equal to parameter data)
 //   after the current position and moves to this new node.
 //   If the current position is null (i.e., isCurNull() is true) and the
 //   list is not empty (i.e., !isEmpty() is true), then the new element will
 //   not be inserted.
-//   Return a reference to the invoking object.
-//   Hint: the new node should be created on the heap.
+//   Returns a reference to the invoking object.
 
 template <class T>
 DLList<T> & DLList<T>::insertAfter(const T & data)
@@ -153,12 +134,10 @@ DLList<T> & DLList<T>::insertAfter(const T & data)
    return *this;
 }
 
-// TODO: write the definition of function DLList<T>::removeToNext().
-//   This function removes the node at the current position
+//   Removes the node at the current position
 //   and move to the next node (this is done if the current node
 //   is not nullptr).
-//   Return a reference to the invoking object.
-//   Hint: this method should call delete to delete the current node.
+//   Returns a reference to the invoking object.
 
 template <class T>
 DLList<T> & DLList<T>::removeToNext()
@@ -187,11 +166,9 @@ DLList<T> & DLList<T>::removeToNext()
    return *this;
 }
 
-// TODO: add the definition of function DLList<T>::removeToPrev().
-//   This function removes the node at the current position
+//   Removes the node at the current position
 //   and move to the previous node (as long as cur is not nullptr).
-//   Return a reference to the invoking object.
-//   Hint: this method should call delete to delete the current node.
+//   Returns a reference to the invoking object.
 
 template <class T>
 DLList<T> & DLList<T>::removeToPrev()
@@ -220,9 +197,8 @@ DLList<T> & DLList<T>::removeToPrev()
    return *this;
 }
 
-// TODO: add the definition of function DLList<T>::clear().
-//   This method removes all nodes from the linked list.
-//   Return a reference to the invoking object.
+//   Removes all nodes from the linked list.
+//   Returns a reference to the invoking object.
 
 template <class T>
 DLList<T> & DLList<T>::clear()
@@ -234,8 +210,7 @@ DLList<T> & DLList<T>::clear()
    return *this;
 }
 
-// TODO: add the definition of the destructor DLList<T>::~DLList().
-//   This should remove all nodes from the linked list.
+//  (Destructor) removes all nodes from the linked list.
 
 template <class T>
 DLList<T>::~DLList()
@@ -244,8 +219,8 @@ DLList<T>::~DLList()
 }
 
 
-// Print the linked list to an std::ostream object.
-// * indicates where the current position is.
+// Prints the linked list to an std::ostream object.
+
 template <class T>
 std::ostream & DLList<T>::print(std::ostream & os) const
 {
